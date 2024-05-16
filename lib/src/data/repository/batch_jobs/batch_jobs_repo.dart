@@ -1,8 +1,5 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
-import 'package:medusa_admin_flutter/src/data/models/request_models/batch_job_create_req.dart';
-import 'package:medusa_admin_flutter/src/data/models/response_models/batch_jobs.dart';
-import 'package:medusa_admin_flutter/src/data/models/store_models/store/batch_job.dart';
+import '../../models/index.dart';
 import 'base_batch_jobs.dart';
 
 class BatchJobsRepository extends BaseBatchJobs {
@@ -18,8 +15,8 @@ class BatchJobsRepository extends BaseBatchJobs {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -33,8 +30,8 @@ class BatchJobsRepository extends BaseBatchJobs {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -49,8 +46,8 @@ class BatchJobsRepository extends BaseBatchJobs {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -64,8 +61,8 @@ class BatchJobsRepository extends BaseBatchJobs {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -81,8 +78,8 @@ class BatchJobsRepository extends BaseBatchJobs {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_customer.dart';
 
@@ -24,8 +23,8 @@ class CustomerRepository extends BaseCustomer {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -43,15 +42,15 @@ class CustomerRepository extends BaseCustomer {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
   Future<Customer?> create({
-    required UserCreateCustomerReq userCreateCustomerReq,
+    required CreateCustomerReq userCreateCustomerReq,
     Map<String, dynamic>? customHeaders,
   }) async {
     try {
@@ -68,8 +67,8 @@ class CustomerRepository extends BaseCustomer {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -77,7 +76,7 @@ class CustomerRepository extends BaseCustomer {
   @override
   Future<Customer?> update({
     required String id,
-    required UserUpdateCustomerReq userUpdateCustomerReq,
+    required UpdateCustomerReq userUpdateCustomerReq,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -95,8 +94,8 @@ class CustomerRepository extends BaseCustomer {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

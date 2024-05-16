@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_note.dart';
 import '../../../../medusa_admin.dart';
@@ -35,15 +34,15 @@ class NoteRepository extends BaseNote {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Deletes a Note
   @override
-  Future<UserDeleteNoteRes?> deleteNote({
+  Future<DeleteNoteRes?> deleteNote({
     /// The ID of the Note to delete.
     required String id,
     Map<String, dynamic>? customHeaders,
@@ -56,12 +55,12 @@ class NoteRepository extends BaseNote {
         '$_notes/$id',
       );
       if (response.statusCode == 200) {
-        return UserDeleteNoteRes.fromJson(response.data);
+        return DeleteNoteRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -85,15 +84,15 @@ class NoteRepository extends BaseNote {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Retrieves a single note using its id
   @override
-  Future<UserNotesRes?> retrieveNotes({
+  Future<NotesRes?> retrieveNotes({
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -106,12 +105,12 @@ class NoteRepository extends BaseNote {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserNotesRes.fromJson(response.data);
+        return NotesRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -139,8 +138,8 @@ class NoteRepository extends BaseNote {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

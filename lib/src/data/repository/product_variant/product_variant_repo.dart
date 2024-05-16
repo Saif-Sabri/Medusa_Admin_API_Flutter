@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'base_product_variant.dart';
 import 'package:dio/dio.dart';
 import '../../models/index.dart';
@@ -8,7 +7,7 @@ class ProductVariantRepository extends BaseProductVariant {
   final Dio _dio;
   static const _variants = '/variants';
   @override
-  Future<UserRetrieveProductVariantsRes?> retrieveProductVariants({
+  Future<RetrieveProductVariantsRes?> retrieveProductVariants({
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -19,12 +18,12 @@ class ProductVariantRepository extends BaseProductVariant {
       final response =
           await _dio.get(_variants, queryParameters: queryParameters);
       if (response.statusCode == 200) {
-        return UserRetrieveProductVariantsRes.fromJson(response.data);
+        return RetrieveProductVariantsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -44,8 +43,8 @@ class ProductVariantRepository extends BaseProductVariant {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

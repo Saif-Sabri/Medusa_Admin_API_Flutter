@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_inventory_items.dart';
 import '../../models/index.dart';
@@ -13,7 +12,7 @@ class InventoryItemsRepository extends BaseInventoryItems {
   Future<InventoryItem?> createInventoryLocationForInventoryItem({
     /// The ID of the Inventory Item.
     required String id,
-    required UserCreateInventoryLocationForInventoryItemReq
+    required CreateInventoryLocationForInventoryItemReq
         userCreateInventoryLocationForInventoryItemReq,
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
@@ -32,15 +31,15 @@ class InventoryItemsRepository extends BaseInventoryItems {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Delete an Inventory Item
   @override
-  Future<UserDeleteInventoryItemRes?> deleteInventoryItem({
+  Future<DeleteInventoryItemRes?> deleteInventoryItem({
     /// The ID of the Inventory Item to delete.
     required String id,
     Map<String, dynamic>? customHeaders,
@@ -51,12 +50,12 @@ class InventoryItemsRepository extends BaseInventoryItems {
       }
       final response = await _dio.delete('$_inventory/$id');
       if (response.statusCode == 200) {
-        return UserDeleteInventoryItemRes.fromJson(response.data);
+        return DeleteInventoryItemRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -85,15 +84,15 @@ class InventoryItemsRepository extends BaseInventoryItems {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Lists stock levels of a given location.
   @override
-  Future<UserStockLevelsOfLocationRes?> listStockLevelsOfLocation({
+  Future<StockLevelsOfLocationRes?> listStockLevelsOfLocation({
     /// The ID of the Inventory Item.
     required String id,
     Map<String, dynamic>? queryParameters,
@@ -108,12 +107,12 @@ class InventoryItemsRepository extends BaseInventoryItems {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserStockLevelsOfLocationRes.fromJson(response.data);
+        return StockLevelsOfLocationRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -139,15 +138,15 @@ class InventoryItemsRepository extends BaseInventoryItems {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Lists inventory items.
   @override
-  Future<UserInventoryItemsRes?> retrieveInventoryItems({
+  Future<InventoryItemsRes?> retrieveInventoryItems({
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -160,12 +159,12 @@ class InventoryItemsRepository extends BaseInventoryItems {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserInventoryItemsRes.fromJson(response.data);
+        return InventoryItemsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -175,7 +174,7 @@ class InventoryItemsRepository extends BaseInventoryItems {
   Future<InventoryItem?> updateInventoryItem({
     /// The ID of the Inventory Item.
     required String id,
-    required UserUpdateInventoryItemReq userUpdateInventoryItemReq,
+    required UpdateInventoryItemReq userUpdateInventoryItemReq,
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -193,8 +192,8 @@ class InventoryItemsRepository extends BaseInventoryItems {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -233,8 +232,8 @@ class InventoryItemsRepository extends BaseInventoryItems {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

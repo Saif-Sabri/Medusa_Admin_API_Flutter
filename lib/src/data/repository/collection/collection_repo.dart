@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import '../../models/index.dart';
 import 'base_collection.dart';
@@ -24,14 +23,14 @@ class CollectionRepository extends BaseCollection {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserCollectionsRes?> retrieveAll({
+  Future<CollectionsRes?> retrieveAll({
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -44,19 +43,19 @@ class CollectionRepository extends BaseCollection {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserCollectionsRes.fromJson(response.data);
+        return CollectionsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
   Future<ProductCollection?> create({
-    required UserCreateCollectionReq userCreateCollectionReq,
+    required CreateCollectionReq userCreateCollectionReq,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -74,8 +73,8 @@ class CollectionRepository extends BaseCollection {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -83,7 +82,7 @@ class CollectionRepository extends BaseCollection {
   @override
   Future<ProductCollection?> update({
     required String id,
-    required UserCreateCollectionReq userCreateCollectionReq,
+    required CreateCollectionReq userCreateCollectionReq,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -101,15 +100,15 @@ class CollectionRepository extends BaseCollection {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
   Future<ProductCollection?> updateProducts({
-    required UserCollectionUpdateProductsReq userCollectionUpdateProductsReq,
+    required CollectionUpdateProductsReq userCollectionUpdateProductsReq,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -127,15 +126,15 @@ class CollectionRepository extends BaseCollection {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserCollectionRemoveProductsRes?> removeProducts({
-    required UserCollectionRemoveProductsReq userCollectionRemoveProductsReq,
+  Future<CollectionRemoveProductsRes?> removeProducts({
+    required CollectionRemoveProductsReq userCollectionRemoveProductsReq,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -149,18 +148,18 @@ class CollectionRepository extends BaseCollection {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserCollectionRemoveProductsRes.fromJson(response.data);
+        return CollectionRemoveProductsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserDeleteCollectionRes?> delete({
+  Future<DeleteCollectionRes?> delete({
     required String id,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -170,12 +169,12 @@ class CollectionRepository extends BaseCollection {
     try {
       final response = await _dio.delete('$_collections/$id');
       if (response.statusCode == 200) {
-        return UserDeleteCollectionRes.fromJson(response.data);
+        return DeleteCollectionRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_product_type.dart';
 import '../../models/response_models/product_type.dart';
@@ -9,7 +8,7 @@ class ProductTypeRepository extends BaseProductType {
   static const _productTypes = '/product-types';
 
   @override
-  Future<UserRetrieveProductTypesRes?> retrieveProductTypes({
+  Future<RetrieveProductTypesRes?> retrieveProductTypes({
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -22,12 +21,12 @@ class ProductTypeRepository extends BaseProductType {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveProductTypesRes.fromJson(response.data);
+        return RetrieveProductTypesRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_swap.dart';
 import '../../models/index.dart';
@@ -32,8 +31,8 @@ class SwapRepository extends BaseSwap {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -45,7 +44,7 @@ class SwapRepository extends BaseSwap {
   Future<Order?> createSwap({
     /// The ID of the Order.
     required String id,
-    required UserCreateSwapSwapReq userCreateSwapSwapReq,
+    required CreateSwapSwapReq userCreateSwapSwapReq,
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -63,8 +62,8 @@ class SwapRepository extends BaseSwap {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -77,7 +76,7 @@ class SwapRepository extends BaseSwap {
 
     /// The ID of the Swap.
     required String swapId,
-    required UserCreateSwapShipmentSwapReq userCreateSwapShipmentSwapReq,
+    required CreateSwapShipmentSwapReq userCreateSwapShipmentSwapReq,
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -95,8 +94,8 @@ class SwapRepository extends BaseSwap {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -126,8 +125,8 @@ class SwapRepository extends BaseSwap {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -153,15 +152,15 @@ class SwapRepository extends BaseSwap {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Retrieves a list of Swaps.
   @override
-  Future<UserRetrieveSwapsRes?> retrieveSwaps({
+  Future<RetrieveSwapsRes?> retrieveSwaps({
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -174,12 +173,12 @@ class SwapRepository extends BaseSwap {
         queryParameters: queryParams,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveSwapsRes.fromJson(response.data);
+        return RetrieveSwapsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

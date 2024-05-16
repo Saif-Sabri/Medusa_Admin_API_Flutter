@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_discount.dart';
 import '../../models/index.dart';
@@ -25,15 +24,15 @@ class DiscountRepository extends BaseDiscount {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
   Future<Discount?> createDiscount(
-      {required UserCreateDiscountReq userCreateDiscountReq,
+      {required CreateDiscountReq userCreateDiscountReq,
       Map<String, dynamic>? queryParameters,
       Map<String, dynamic>? customHeaders}) async {
     if (customHeaders != null) {
@@ -49,16 +48,16 @@ class DiscountRepository extends BaseDiscount {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserCreateDynamicCodeDiscountRes?> createDynamicCode({
+  Future<CreateDynamicCodeDiscountRes?> createDynamicCode({
     required String id,
-    required UserCreateDynamicCodeDiscountReq userCreateDynamicCodeDiscountReq,
+    required CreateDynamicCodeDiscountReq userCreateDynamicCodeDiscountReq,
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -71,18 +70,18 @@ class DiscountRepository extends BaseDiscount {
         data: userCreateDynamicCodeDiscountReq.toJson(),
       );
       if (response.statusCode == 200) {
-        return UserCreateDynamicCodeDiscountRes.fromJson(response.data);
+        return CreateDynamicCodeDiscountRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserDeleteDiscountRes?> deleteDiscount({
+  Future<DeleteDiscountRes?> deleteDiscount({
     required String id,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -94,12 +93,12 @@ class DiscountRepository extends BaseDiscount {
         '$_discounts/$id',
       );
       if (response.statusCode == 200) {
-        return UserDeleteDiscountRes.fromJson(response.data);
+        return DeleteDiscountRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -123,8 +122,8 @@ class DiscountRepository extends BaseDiscount {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -147,8 +146,8 @@ class DiscountRepository extends BaseDiscount {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -171,8 +170,8 @@ class DiscountRepository extends BaseDiscount {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -196,14 +195,14 @@ class DiscountRepository extends BaseDiscount {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserRetrieveDiscountsRes?> retrieveDiscounts({
+  Future<RetrieveDiscountsRes?> retrieveDiscounts({
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -216,21 +215,21 @@ class DiscountRepository extends BaseDiscount {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveDiscountsRes.fromJson(response.data);
+        return RetrieveDiscountsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserRetrieveDiscountsRes?> updateCondition({
+  Future<RetrieveDiscountsRes?> updateCondition({
     required String discountId,
     required String conditionId,
-    required UserUpdateConditionDiscountReq userUpdateConditionDiscountReq,
+    required UpdateConditionDiscountReq userUpdateConditionDiscountReq,
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -244,12 +243,12 @@ class DiscountRepository extends BaseDiscount {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveDiscountsRes.fromJson(response.data);
+        return RetrieveDiscountsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -257,7 +256,7 @@ class DiscountRepository extends BaseDiscount {
   @override
   Future<Discount?> updateDiscount({
     required String id,
-    required UserUpdateDiscountReq userUpdateDiscountReq,
+    required UpdateDiscountReq userUpdateDiscountReq,
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -275,8 +274,8 @@ class DiscountRepository extends BaseDiscount {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

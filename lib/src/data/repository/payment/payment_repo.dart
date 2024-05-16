@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_payment.dart';
 import '../../models/index.dart';
@@ -27,15 +26,15 @@ class PaymentRepository extends BasePayment {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Issues a Refund.
   @override
-  Future<UserCreateRefundPaymentRes?> createRefund({
+  Future<CreateRefundPaymentRes?> createRefund({
     /// The ID of the Payment.
     required String id,
     Map<String, dynamic>? customHeaders,
@@ -48,12 +47,12 @@ class PaymentRepository extends BasePayment {
         '$_payments/$id/capture',
       );
       if (response.statusCode == 200) {
-        return UserCreateRefundPaymentRes.fromJson(response.data);
+        return CreateRefundPaymentRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -77,8 +76,8 @@ class PaymentRepository extends BasePayment {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

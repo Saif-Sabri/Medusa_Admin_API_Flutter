@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_product_tag.dart';
 import '../../models/index.dart';
@@ -9,7 +8,7 @@ class ProductTagRepository extends BaseProductTag {
   static const _productTags = '/product-tags';
 
   @override
-  Future<UserRetrieveProductTagsRes?> retrieveProductTags({
+  Future<RetrieveProductTagsRes?> retrieveProductTags({
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -22,12 +21,12 @@ class ProductTagRepository extends BaseProductTag {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveProductTagsRes.fromJson(response.data);
+        return RetrieveProductTagsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

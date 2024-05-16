@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_reservation.dart';
 import '../../models/index.dart';
@@ -28,14 +27,14 @@ class ReservationRepository extends BaseReservation {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserDeleteReservationRes?> deleteReservation({
+  Future<DeleteReservationRes?> deleteReservation({
     required String id,
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
@@ -49,12 +48,12 @@ class ReservationRepository extends BaseReservation {
         queryParameters: queryParams,
       );
       if (response.statusCode == 200) {
-        return UserDeleteReservationRes.fromJson(response.data);
+        return DeleteReservationRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -78,8 +77,8 @@ class ReservationRepository extends BaseReservation {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -87,7 +86,7 @@ class ReservationRepository extends BaseReservation {
   @override
   Future<Reservation?> updateReservation({
     required String id,
-    required UserUpdateReservationReq userUpdateReservationReq,
+    required UpdateReservationReq userUpdateReservationReq,
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -105,8 +104,8 @@ class ReservationRepository extends BaseReservation {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'base_order_edit.dart';
 import 'package:dio/dio.dart';
 import '../../models/index.dart';
@@ -13,7 +12,7 @@ class OrderEditRepository extends BaseOrderEdit {
   Future<OrderEdit?> addLineItem({
     /// The ID of the Order Edit.
     required String id,
-    required UserAddLineItemReq userAddLineItemReq,
+    required AddLineItemReq userAddLineItemReq,
     Map<String, dynamic>? customHeaders,
   }) async {
     if (customHeaders != null) {
@@ -29,8 +28,8 @@ class OrderEditRepository extends BaseOrderEdit {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -54,8 +53,8 @@ class OrderEditRepository extends BaseOrderEdit {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -79,8 +78,8 @@ class OrderEditRepository extends BaseOrderEdit {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -111,8 +110,8 @@ class OrderEditRepository extends BaseOrderEdit {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -139,15 +138,15 @@ class OrderEditRepository extends BaseOrderEdit {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Deletes an Order Edit Item Change
   @override
-  Future<UserDeleteLineItemChangeRes?> deleteLineItemChange({
+  Future<DeleteLineItemChangeRes?> deleteLineItemChange({
     /// The ID of the Order Edit to delete.
     required String id,
     required String changeId,
@@ -161,19 +160,19 @@ class OrderEditRepository extends BaseOrderEdit {
         '$_orderEdits/$id/changes/$changeId',
       );
       if (response.statusCode == 200) {
-        return UserDeleteLineItemChangeRes.fromJson(response.data);
+        return DeleteLineItemChangeRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Deletes an OrderEdit.
   @override
-  Future<UserDeleteOrderEditRes?> deleteOrderEdit({
+  Future<DeleteOrderEditRes?> deleteOrderEdit({
     /// The ID of the order to create the edit for.
     required String id,
 
@@ -189,12 +188,12 @@ class OrderEditRepository extends BaseOrderEdit {
         '$_orderEdits/$id',
       );
       if (response.statusCode == 200) {
-        return UserDeleteOrderEditRes.fromJson(response.data);
+        return DeleteOrderEditRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -218,15 +217,15 @@ class OrderEditRepository extends BaseOrderEdit {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// List OrderEdits.
   @override
-  Future<UserRetrieveAllOrderEditRes?> retrieveAllOrderEdit({
+  Future<RetrieveAllOrderEditRes?> retrieveAllOrderEdit({
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -239,12 +238,12 @@ class OrderEditRepository extends BaseOrderEdit {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveAllOrderEditRes.fromJson(response.data);
+        return RetrieveAllOrderEditRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -269,8 +268,8 @@ class OrderEditRepository extends BaseOrderEdit {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -299,8 +298,8 @@ class OrderEditRepository extends BaseOrderEdit {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -333,8 +332,8 @@ class OrderEditRepository extends BaseOrderEdit {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

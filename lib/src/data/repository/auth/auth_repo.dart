@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import '../../models/index.dart';
 import 'base_auth.dart';
@@ -11,7 +10,7 @@ class AuthRepository extends BaseAuth {
   /// Authenticates a user using email and password combination and returns a user object.
   @override
   Future<User?> signIn({
-    required UserPostAuthReq req,
+    required PostAuthReq req,
     Map<String, dynamic>? customHeaders,
   }) async {
     if (customHeaders != null) {
@@ -25,8 +24,7 @@ class AuthRepository extends BaseAuth {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
       rethrow;
     }
   }
@@ -34,7 +32,7 @@ class AuthRepository extends BaseAuth {
   /// Authenticates a user using email and password combination and returns a JWT token.
   @override
   Future<String?> signInJWT(
-      {required UserPostAuthReq req,
+      {required PostAuthReq req,
       Map<String, dynamic>? customHeaders}) async {
     if (customHeaders != null) {
       _dio.options.headers.addAll(customHeaders);
@@ -47,8 +45,7 @@ class AuthRepository extends BaseAuth {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
       rethrow;
     }
   }
@@ -56,7 +53,7 @@ class AuthRepository extends BaseAuth {
   /// Authenticates a user using email and password combination and returns a cookie.
   @override
   Future<String?> signInCookie({
-    required UserPostAuthReq req,
+    required PostAuthReq req,
     Map<String, dynamic>? customHeaders,
   }) async {
     if (customHeaders != null) {
@@ -72,8 +69,7 @@ class AuthRepository extends BaseAuth {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
       rethrow;
     }
   }
@@ -93,8 +89,8 @@ class AuthRepository extends BaseAuth {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -114,8 +110,8 @@ class AuthRepository extends BaseAuth {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

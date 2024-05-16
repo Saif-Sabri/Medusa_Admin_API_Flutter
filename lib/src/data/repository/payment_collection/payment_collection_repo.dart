@@ -1,4 +1,3 @@
-import 'dart:developer';
 import '../../models/response_models/notification.dart';
 import '../../models/response_models/payment_collection.dart';
 import '../../models/store_models/payment_collection/index.dart';
@@ -11,7 +10,7 @@ class PaymentCollectionRepository extends BasePaymentCollection {
 
   /// Deletes a Payment Collection
   @override
-  Future<UserDeletePaymentCollectionRes?> deletePaymentCollection({
+  Future<DeletePaymentCollectionRes?> deletePaymentCollection({
     /// The ID of the PaymentCollection to delete.
     required String id,
     Map<String, dynamic>? customHeaders,
@@ -24,19 +23,19 @@ class PaymentCollectionRepository extends BasePaymentCollection {
         '$_paymentCollections/$id',
       );
       if (response.statusCode == 200) {
-        return UserDeletePaymentCollectionRes.fromJson(response.data);
+        return DeletePaymentCollectionRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Sets the status of PaymentCollection as Authorized.
   @override
-  Future<UserRetrieveNotificationsRes?> markPaymentCollectionAuthorized({
+  Future<RetrieveNotificationsRes?> markPaymentCollectionAuthorized({
     /// The ID of the PaymentCollection.
     required String id,
     Map<String, dynamic>? customHeaders,
@@ -49,12 +48,12 @@ class PaymentCollectionRepository extends BasePaymentCollection {
          '$_paymentCollections/$id/authorize',
       );
       if (response.statusCode == 200) {
-        return UserRetrieveNotificationsRes.fromJson(response.data);
+        return RetrieveNotificationsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -80,15 +79,15 @@ class PaymentCollectionRepository extends BasePaymentCollection {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Updates a PaymentCollection.
   @override
-  Future<UserRetrieveNotificationsRes?> updatePaymentCollection({
+  Future<RetrieveNotificationsRes?> updatePaymentCollection({
     /// The ID of the PaymentCollection.
     required String id,
 
@@ -108,12 +107,12 @@ class PaymentCollectionRepository extends BasePaymentCollection {
         if (description != null) 'description': description,
       });
       if (response.statusCode == 200) {
-        return UserRetrieveNotificationsRes.fromJson(response.data);
+        return RetrieveNotificationsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

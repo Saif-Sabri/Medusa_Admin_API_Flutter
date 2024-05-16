@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_regions.dart';
 import '../../models/index.dart';
@@ -9,7 +8,7 @@ class RegionsRepository extends BaseRegions {
   static const _regions = '/regions';
 
   @override
-  Future<UserRegionsRes?> retrieveAll(
+  Future<RegionsRes?> retrieveAll(
       {Map<String, dynamic>? queryParameters,
       Map<String, dynamic>? customHeaders}) async {
     try {
@@ -19,12 +18,12 @@ class RegionsRepository extends BaseRegions {
       final response =
           await _dio.get(_regions, queryParameters: queryParameters);
       if (response.statusCode == 200) {
-        return UserRegionsRes.fromJson(response.data);
+        return RegionsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -45,15 +44,15 @@ class RegionsRepository extends BaseRegions {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
   Future<Region?> create(
-      {required UserCreateRegionReq userCreateRegionReq,
+      {required CreateRegionReq userCreateRegionReq,
       Map<String, dynamic>? queryParams,
       Map<String, dynamic>? customHeaders}) async {
     try {
@@ -67,8 +66,8 @@ class RegionsRepository extends BaseRegions {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -89,8 +88,8 @@ class RegionsRepository extends BaseRegions {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -111,8 +110,8 @@ class RegionsRepository extends BaseRegions {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -133,14 +132,14 @@ class RegionsRepository extends BaseRegions {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserDeleteRegionRes?> delete(
+  Future<DeleteRegionRes?> delete(
       {required String id,
       Map<String, dynamic>? queryParams,
       Map<String, dynamic>? customHeaders}) async {
@@ -150,12 +149,12 @@ class RegionsRepository extends BaseRegions {
       }
       final response = await _dio.delete('$_regions/$id');
       if (response.statusCode == 200) {
-        return UserDeleteRegionRes.fromJson(response.data);
+        return DeleteRegionRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -176,8 +175,8 @@ class RegionsRepository extends BaseRegions {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -198,8 +197,8 @@ class RegionsRepository extends BaseRegions {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -220,8 +219,8 @@ class RegionsRepository extends BaseRegions {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -242,8 +241,8 @@ class RegionsRepository extends BaseRegions {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -251,7 +250,7 @@ class RegionsRepository extends BaseRegions {
   @override
   Future<Region?> update(
       {required String id,
-      required UserUpdateRegionReq userUpdateRegionReq,
+      required UpdateRegionReq userUpdateRegionReq,
       Map<String, dynamic>? queryParams,
       Map<String, dynamic>? customHeaders}) async {
     try {
@@ -265,8 +264,8 @@ class RegionsRepository extends BaseRegions {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_discount_condition.dart';
 import '../../models/index.dart';
@@ -31,8 +30,8 @@ class DiscountConditionRepository extends BaseDiscountCondition {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -40,7 +39,7 @@ class DiscountConditionRepository extends BaseDiscountCondition {
   @override
   Future<Discount?> createDiscountCondition({
     required String discountId,
-    required UserCreateConditionReq userCreateConditionReq,
+    required CreateConditionReq userCreateConditionReq,
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -57,8 +56,8 @@ class DiscountConditionRepository extends BaseDiscountCondition {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -86,14 +85,14 @@ class DiscountConditionRepository extends BaseDiscountCondition {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserDeleteDiscountConditionRes?> deleteDiscountCondition({
+  Future<DeleteDiscountConditionRes?> deleteDiscountCondition({
     required String discountId,
     required String conditionId,
     Map<String, dynamic>? queryParameters,
@@ -107,12 +106,12 @@ class DiscountConditionRepository extends BaseDiscountCondition {
         '$_discounts/$discountId$_conditions/$conditionId',
       );
       if (response.statusCode == 200) {
-        return UserDeleteDiscountConditionRes.fromJson(response.data);
+        return DeleteDiscountConditionRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -137,8 +136,8 @@ class DiscountConditionRepository extends BaseDiscountCondition {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

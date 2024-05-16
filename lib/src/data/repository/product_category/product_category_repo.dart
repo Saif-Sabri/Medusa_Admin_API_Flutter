@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'base_product_category.dart';
 import 'package:dio/dio.dart';
 import '../../models/index.dart';
@@ -28,15 +27,15 @@ class ProductCategoryRepository extends BaseProductCategory {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
   Future<ProductCategory?> createProductCategory({
-    required UserCreateProductCategoryReq userCreateProductCategoryReq,
+    required CreateProductCategoryReq userCreateProductCategoryReq,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -54,14 +53,14 @@ class ProductCategoryRepository extends BaseProductCategory {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserDeleteProductCategoryRes?> deleteProductCategory({
+  Future<DeleteProductCategoryRes?> deleteProductCategory({
     required String id,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
@@ -75,12 +74,12 @@ class ProductCategoryRepository extends BaseProductCategory {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserDeleteProductCategoryRes.fromJson(response.data);
+        return DeleteProductCategoryRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -105,14 +104,14 @@ class ProductCategoryRepository extends BaseProductCategory {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserRetrieveProductCategoriesRes?> retrieveProductCategories({
+  Future<RetrieveProductCategoriesRes?> retrieveProductCategories({
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -125,12 +124,12 @@ class ProductCategoryRepository extends BaseProductCategory {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveProductCategoriesRes.fromJson(response.data);
+        return RetrieveProductCategoriesRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -154,8 +153,8 @@ class ProductCategoryRepository extends BaseProductCategory {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -163,7 +162,7 @@ class ProductCategoryRepository extends BaseProductCategory {
   @override
   Future<ProductCategory?> updateProductCategory({
     required String id,
-    required UserUpdateProductCategoryReq userUpdateProductCategoryReq,
+    required UpdateProductCategoryReq userUpdateProductCategoryReq,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -181,8 +180,8 @@ class ProductCategoryRepository extends BaseProductCategory {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

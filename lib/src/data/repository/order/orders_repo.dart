@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import '../../models/index.dart';
 import 'base_orders.dart';
@@ -26,15 +25,15 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Retrieves a list of Orders
   @override
-  Future<UserRetrieveOrdersRes?> retrieveOrders({
+  Future<RetrieveOrdersRes?> retrieveOrders({
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -47,12 +46,12 @@ class OrdersRepository extends BaseOrders {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveOrdersRes.fromJson(response.data);
+        return RetrieveOrdersRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -93,8 +92,8 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -120,8 +119,8 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -148,8 +147,8 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -175,8 +174,8 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -202,8 +201,8 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -243,8 +242,8 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -254,7 +253,7 @@ class OrdersRepository extends BaseOrders {
   Future<Order?> createRefund({
     /// The ID of the Order.
     required String id,
-    required UserCreateRefundOrdersReq userCreateRefundOrdersReq,
+    required CreateRefundOrdersReq userCreateRefundOrdersReq,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -272,8 +271,8 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -312,8 +311,8 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -323,7 +322,7 @@ class OrdersRepository extends BaseOrders {
   Future<Order?> requestReturn({
     /// The ID of the Order.
     required String id,
-    required UserRequestReturnOrdersReq userRequestReturnOrdersReq,
+    required RequestReturnOrdersReq userRequestReturnOrdersReq,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -341,15 +340,15 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Retrieves reservations for an Order
   @override
-  Future<UserRetrieveOrderReservationsRes?> retrieveOrderReservations({
+  Future<RetrieveOrderReservationsRes?> retrieveOrderReservations({
     /// The ID of the Order.
     required String id,
     Map<String, dynamic>? customHeaders,
@@ -364,12 +363,12 @@ class OrdersRepository extends BaseOrders {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveOrderReservationsRes.fromJson(response.data);
+        return RetrieveOrderReservationsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -378,7 +377,7 @@ class OrdersRepository extends BaseOrders {
   Future<Order?> updateOrder({
     /// The ID of the Order.
     required String id,
-    required UserUpdateOrderReq userUpdateOrderReq,
+    required UpdateOrderReq userUpdateOrderReq,
     Map<String, dynamic>? customHeaders,
     Map<String, dynamic>? queryParameters,
   }) async {
@@ -396,8 +395,8 @@ class OrdersRepository extends BaseOrders {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

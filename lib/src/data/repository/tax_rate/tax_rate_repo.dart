@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_tax_rate.dart';
 import '../../models/index.dart';
@@ -33,8 +32,8 @@ class TaxRateRepository extends BaseTaxRate {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -64,8 +63,8 @@ class TaxRateRepository extends BaseTaxRate {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -95,8 +94,8 @@ class TaxRateRepository extends BaseTaxRate {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -104,7 +103,7 @@ class TaxRateRepository extends BaseTaxRate {
   /// Creates a Tax Rate
   @override
   Future<TaxRate?> createTaxRate({
-    required UserCreateTaxRateReq userCreateTaxRateReq,
+    required CreateTaxRateReq userCreateTaxRateReq,
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -122,15 +121,15 @@ class TaxRateRepository extends BaseTaxRate {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Deletes a Tax Rate
   @override
-  Future<UserDeleteTaxRateRes?> deleteTaxRate({
+  Future<DeleteTaxRateRes?> deleteTaxRate({
     /// The ID of the Tax Rate to delete.
     required String id,
     Map<String, dynamic>? customHeaders,
@@ -143,12 +142,12 @@ class TaxRateRepository extends BaseTaxRate {
         '$_taxRates/$id',
       );
       if (response.statusCode == 200) {
-        return UserDeleteTaxRateRes.fromJson(response.data);
+        return DeleteTaxRateRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -177,8 +176,8 @@ class TaxRateRepository extends BaseTaxRate {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -207,8 +206,8 @@ class TaxRateRepository extends BaseTaxRate {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -234,8 +233,8 @@ class TaxRateRepository extends BaseTaxRate {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -261,15 +260,15 @@ class TaxRateRepository extends BaseTaxRate {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Retrieves a list of TaxRates
   @override
-  Future<UserRetrieveTaxRatesRes?> retrieveTaxRates({
+  Future<RetrieveTaxRatesRes?> retrieveTaxRates({
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -282,12 +281,12 @@ class TaxRateRepository extends BaseTaxRate {
         queryParameters: queryParams,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveTaxRatesRes.fromJson(response.data);
+        return RetrieveTaxRatesRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -297,7 +296,7 @@ class TaxRateRepository extends BaseTaxRate {
   Future<TaxRate?> updateTaxRate({
     /// ID of the tax rate.
     required String id,
-    required UserUpdateTaxRateReq userUpdateTaxRateReq,
+    required UpdateTaxRateReq userUpdateTaxRateReq,
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -315,8 +314,8 @@ class TaxRateRepository extends BaseTaxRate {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

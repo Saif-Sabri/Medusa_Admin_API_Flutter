@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import '../../models/index.dart';
 import 'base_draft_order.dart';
@@ -10,7 +9,7 @@ class DraftOrderRepository extends BaseDraftOrder {
   /// Creates a Draft Order
   @override
   Future<DraftOrder?> createDraftOrder({
-    required UserCreateDraftOrderReq userCreateDraftOrderReq,
+    required CreateDraftOrderReq userCreateDraftOrderReq,
     Map<String, dynamic>? customHeaders,
   }) async {
     try {
@@ -24,8 +23,8 @@ class DraftOrderRepository extends BaseDraftOrder {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -35,7 +34,7 @@ class DraftOrderRepository extends BaseDraftOrder {
   Future<DraftOrder?>  createLineItem({
     /// The ID of the Draft Order.
     required String id,
-    required UserCreateLineItemReq userCreateLineItemReq,
+    required CreateLineItemReq userCreateLineItemReq,
     Map<String, dynamic>? customHeaders,
   }) async {
     try {
@@ -50,15 +49,15 @@ class DraftOrderRepository extends BaseDraftOrder {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Deletes a Draft Order
   @override
-  Future<UserDeleteDraftOrderRes?>deleteDraftOrder({
+  Future<DeleteDraftOrderRes?>deleteDraftOrder({
     /// The ID of the Draft Order to delete.
     required String id,
     Map<String, dynamic>? customHeaders,
@@ -71,12 +70,12 @@ class DraftOrderRepository extends BaseDraftOrder {
         '$_draftOrders/$id',
       );
       if (response.statusCode == 200) {
-        return UserDeleteDraftOrderRes.fromJson(response.data);
+        return DeleteDraftOrderRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -103,8 +102,8 @@ class DraftOrderRepository extends BaseDraftOrder {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -128,8 +127,8 @@ class DraftOrderRepository extends BaseDraftOrder {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -155,15 +154,15 @@ class DraftOrderRepository extends BaseDraftOrder {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Retrieves an list of Draft Orders
   @override
-  Future<UserDraftOrdersRes?> retrieveDraftOrders({
+  Future<DraftOrdersRes?> retrieveDraftOrders({
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -176,12 +175,12 @@ class DraftOrderRepository extends BaseDraftOrder {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserDraftOrdersRes.fromJson(response.data);
+        return DraftOrdersRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -191,7 +190,7 @@ class DraftOrderRepository extends BaseDraftOrder {
   Future<DraftOrder?> updateDraftOrder({
     /// The ID of the Draft Order.
     required String id,
-    required UserUpdateDraftOrderReq userUpdateDraftOrderReq,
+    required UpdateDraftOrderReq userUpdateDraftOrderReq,
     Map<String, dynamic>? customHeaders,
   }) async {
     try {
@@ -207,8 +206,8 @@ class DraftOrderRepository extends BaseDraftOrder {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -221,7 +220,7 @@ class DraftOrderRepository extends BaseDraftOrder {
 
     /// The ID of the Line Item.
     required String lineId,
-    required UserUpdateLineItemReq userUpdateLineItemReq,
+    required UpdateLineItemReq userUpdateLineItemReq,
     Map<String, dynamic>? customHeaders,
   }) async {
     try {
@@ -237,8 +236,8 @@ class DraftOrderRepository extends BaseDraftOrder {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

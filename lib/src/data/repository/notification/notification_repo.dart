@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'base_notification.dart';
 import 'package:dio/dio.dart';
 import '../../models/index.dart';
@@ -15,7 +14,7 @@ class NotificationRepository extends BaseNotification {
     required String id,
 
     /// A new address or user identifier that the Notification should be sent to
-    required String to,
+    String? to,
     Map<String, dynamic>? customHeaders,
   }) async {
     try {
@@ -28,15 +27,15 @@ class NotificationRepository extends BaseNotification {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Retrieves a list of Notifications.
   @override
-  Future<UserRetrieveNotificationsRes?> retrieveNotifications({
+  Future<RetrieveNotificationsRes?> retrieveNotifications({
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -49,12 +48,12 @@ class NotificationRepository extends BaseNotification {
         queryParameters: queryParameters,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveNotificationsRes.fromJson(response.data);
+        return RetrieveNotificationsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

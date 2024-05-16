@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_gift_card.dart';
 import '../../models/index.dart';
@@ -11,7 +10,7 @@ class GiftCardRepository extends BaseGiftCard {
   /// Creates a Gift Card that can redeemed by its unique code. The Gift Card is only valid within 1 region.
   @override
   Future<GiftCard?> createGiftCard({
-    required UserCreateGiftCardReq userCreateGiftCardReq,
+    required CreateGiftCardReq userCreateGiftCardReq,
     Map<String, dynamic>? customHeaders,
   }) async {
     try {
@@ -27,15 +26,15 @@ class GiftCardRepository extends BaseGiftCard {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Deletes a Gift Card
   @override
-  Future<UserDeleteGiftCardRes?> deleteGiftCard({
+  Future<DeleteGiftCardRes?> deleteGiftCard({
     /// The ID of the Gift Card to delete.
     required String id,
     Map<String, dynamic>? customHeaders,
@@ -48,12 +47,12 @@ class GiftCardRepository extends BaseGiftCard {
         '$_giftCards/$id',
       );
       if (response.statusCode == 200) {
-        return UserDeleteGiftCardRes.fromJson(response.data);
+        return DeleteGiftCardRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -77,15 +76,15 @@ class GiftCardRepository extends BaseGiftCard {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   /// Retrieves a list of Gift Cards.
   @override
-  Future<UserGiftCardsRes?> retrieveGiftCards({
+  Future<GiftCardsRes?> retrieveGiftCards({
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -97,12 +96,12 @@ class GiftCardRepository extends BaseGiftCard {
         _giftCards,
       );
       if (response.statusCode == 200) {
-        return UserGiftCardsRes.fromJson(response.data);
+        return GiftCardsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -112,7 +111,7 @@ class GiftCardRepository extends BaseGiftCard {
   Future<GiftCard?> updateGiftCard({
     /// The ID of the Gift Card.
     required String id,
-    required UserUpdateGiftCardReq userUpdateGiftCardReq,
+    required UpdateGiftCardReq userUpdateGiftCardReq,
     Map<String, dynamic>? customHeaders,
   }) async {
     try {
@@ -128,8 +127,8 @@ class GiftCardRepository extends BaseGiftCard {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }

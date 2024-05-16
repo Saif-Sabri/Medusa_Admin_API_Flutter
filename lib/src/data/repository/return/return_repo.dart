@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'base_return.dart';
 import '../../models/index.dart';
@@ -29,8 +28,8 @@ class ReturnRepository extends BaseReturn {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -38,7 +37,7 @@ class ReturnRepository extends BaseReturn {
   @override
   Future<Return?> receiveReturn({
     required String id,
-    required UserReceiveReturnOrderReq userReceiveReturnOrderReq,
+    required ReceiveReturnOrderReq userReceiveReturnOrderReq,
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -56,8 +55,8 @@ class ReturnRepository extends BaseReturn {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
@@ -65,7 +64,7 @@ class ReturnRepository extends BaseReturn {
   @override
   Future<Order?>  requestReturn({
     required String id,
-    required UserRequestReturnOrdersReq userRequestReturnOrdersReq,
+    required RequestReturnOrdersReq userRequestReturnOrdersReq,
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -83,14 +82,14 @@ class ReturnRepository extends BaseReturn {
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
 
   @override
-  Future<UserRetrieveReturnsRes?>  retrieveReturns({
+  Future<RetrieveReturnsRes?>  retrieveReturns({
     Map<String, dynamic>? queryParams,
     Map<String, dynamic>? customHeaders,
   }) async {
@@ -103,12 +102,12 @@ class ReturnRepository extends BaseReturn {
         queryParameters: queryParams,
       );
       if (response.statusCode == 200) {
-        return UserRetrieveReturnsRes.fromJson(response.data);
+        return RetrieveReturnsRes.fromJson(response.data);
       } else {
         throw response;
       }
-    } catch (error, stackTrace) {
-      log(error.toString(), stackTrace: stackTrace);
+    } catch (_) {
+
       rethrow;
     }
   }
