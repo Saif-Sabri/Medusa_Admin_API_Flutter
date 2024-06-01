@@ -13,6 +13,7 @@ export 'invite/invite_repo.dart';
 export 'note/note_repo.dart';
 export 'order/orders_repo.dart';
 export 'notification/notification_repo.dart';
+export 'inspiration/inspiration_repo.dart';
 export 'payment/payment_repo.dart';
 export 'payment_collection/payment_collection_repo.dart';
 export 'price_list/price_list_repo.dart';
