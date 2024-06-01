@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:medusa_admin_dart_client/src/data/models/store_models/store/inspiration.dart';
-import '../../models/index.dart';
+import '../../models/store_models/store/inspiration.dart';
 
 class InspirationRepository {
   InspirationRepository(Dio dio) : _dio = dio;
