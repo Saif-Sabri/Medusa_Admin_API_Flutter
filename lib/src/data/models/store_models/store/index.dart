@@ -56,6 +56,7 @@ export 'tax_provider.dart';
 export 'tax_rate.dart';
 export 'tracking_link.dart';
 export 'user.dart';
+export 'inspiration.dart';
 export 'location_level.dart';
 export 'reservation.dart';
 export 'publishable_api_key.dart';
