@@ -18,6 +18,7 @@ class InspirationRepository {
         _inspiration,
       );
       if (response.statusCode == 200) {
+        print(response);
         final list = response.data;
         if (list != null) {
           if (list is List) {
