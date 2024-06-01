@@ -18,6 +18,7 @@ class MedusaAdmin {
     required this.fulfillmentRepository,
     required this.giftCardRepository,
     required this.inventoryItemsRepository,
+    required this.inspirationRepository,
     required this.inviteRepository,
     required this.noteRepository,
     required this.notificationRepository,
@@ -78,6 +79,7 @@ class MedusaAdmin {
       giftCardRepository: GiftCardRepository(dio),
       inventoryItemsRepository: InventoryItemsRepository(dio),
       inviteRepository: InviteRepository(dio),
+      inspirationRepository: InspirationRepository(dio),
       noteRepository: NoteRepository(dio),
       notificationRepository: NotificationRepository(dio),
       orderRepository: OrdersRepository(dio),
@@ -126,6 +128,7 @@ class MedusaAdmin {
   final FulfillmentRepository fulfillmentRepository;
   final GiftCardRepository giftCardRepository;
   final InventoryItemsRepository inventoryItemsRepository;
+  final InspirationRepository inspirationRepository;
   final InviteRepository inviteRepository;
   final NoteRepository noteRepository;
   final NotificationRepository notificationRepository;
