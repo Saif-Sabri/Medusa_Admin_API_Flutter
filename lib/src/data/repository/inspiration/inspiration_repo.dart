@@ -18,7 +18,7 @@ class InspirationRepository {
         _inspiration,
       );
       if (response.statusCode == 200) {
-        final list = response.data!["inspirations"];
+        final list = response.data;
         if (list != null) {
           if (list is List) {
             return list

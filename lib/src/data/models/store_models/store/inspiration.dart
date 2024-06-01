@@ -1,14 +1,14 @@
 class Inspiration {
   const Inspiration({
-    required this.imageUrl,
+    required this.thumbnail,
     required this.id,
   });
 
   factory Inspiration.fromJson(Map<String, dynamic> map) => Inspiration(
-        imageUrl: map["image"]!.toString(),
+        thumbnail: map["thumbnail"]!.toString(),
         id: map["_id"]!.toString(),
       );
 
   final String id;
-  final String imageUrl;
+  final String thumbnail;
 }
