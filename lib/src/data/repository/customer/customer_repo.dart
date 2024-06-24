@@ -9,7 +9,8 @@ class CustomerRepository extends BaseCustomer {
   static const _customers = '/customers';
   @override
   Future<CustomersRes?> retrieveCustomers(
-      {Map<String, dynamic>? customHeaders, Map<String, dynamic>? queryParameters}) async {
+      {Map<String, dynamic>? customHeaders,
+      Map<String, dynamic>? queryParameters}) async {
     try {
       if (customHeaders != null) {
         _dio.options.headers.addAll(customHeaders);
@@ -24,26 +25,27 @@ class CustomerRepository extends BaseCustomer {
         throw response;
       }
     } catch (_) {
-
       rethrow;
     }
   }
 
   @override
   Future<Customer?> retrieve(
-      {required String id, Map<String, dynamic>? customHeaders, Map<String, dynamic>? queryParameters}) async {
+      {required String id,
+      Map<String, dynamic>? customHeaders,
+      Map<String, dynamic>? queryParameters}) async {
     try {
       if (customHeaders != null) {
         _dio.options.headers.addAll(customHeaders);
       }
-      final response = await _dio.get('$_customers/$id', queryParameters: queryParameters);
+      final response =
+          await _dio.get('$_customers/$id', queryParameters: queryParameters);
       if (response.statusCode == 200) {
         return Customer.fromJson(response.data['customer']);
       } else {
         throw response;
       }
     } catch (_) {
-
       rethrow;
     }
   }
@@ -62,13 +64,12 @@ class CustomerRepository extends BaseCustomer {
         data: userCreateCustomerReq.toJson(),
       );
       // Customer success response code is 201, check medusa docs
-      if (response.statusCode == 201) {
+      if (response.statusCode == 200) {
         return Customer.fromJson(response.data['customer']);
       } else {
         throw response;
       }
     } catch (_) {
-
       rethrow;
     }
   }
@@ -95,7 +96,32 @@ class CustomerRepository extends BaseCustomer {
         throw response;
       }
     } catch (_) {
+      rethrow;
+    }
+  }
 
+  @override
+  Future<Customer?> updateCurrentCustomer({
+    required String id,
+    required UpdateCustomerReq userUpdateCustomerReq,
+    Map<String, dynamic>? customHeaders,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      if (customHeaders != null) {
+        _dio.options.headers.addAll(customHeaders);
+      }
+      final response = await _dio.post(
+        '$_customers/me',
+        data: userUpdateCustomerReq.toJson(),
+        queryParameters: queryParameters,
+      );
+      if (response.statusCode == 200) {
+        return Customer.fromJson(response.data['customer']);
+      } else {
+        throw response;
+      }
+    } catch (_) {
       rethrow;
     }
   }
