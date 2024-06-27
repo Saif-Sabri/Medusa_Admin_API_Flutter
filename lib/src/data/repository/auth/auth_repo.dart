@@ -20,7 +20,7 @@ class AuthRepository extends BaseAuth {
     try {
       final response = await _dio.post(_auth, data: req);
       if (response.statusCode == 200) {
-        return User.fromJson(response.data['user']);
+        return User.fromJson(response.data['customer']);
       } else {
         throw response;
       }
@@ -32,8 +32,7 @@ class AuthRepository extends BaseAuth {
   /// Authenticates a user using email and password combination and returns a JWT token.
   @override
   Future<String?> signInJWT(
-      {required PostAuthReq req,
-      Map<String, dynamic>? customHeaders}) async {
+      {required PostAuthReq req, Map<String, dynamic>? customHeaders}) async {
     if (customHeaders != null) {
       _dio.options.headers.addAll(customHeaders);
     }
@@ -90,7 +89,6 @@ class AuthRepository extends BaseAuth {
         throw response;
       }
     } catch (_) {
-
       rethrow;
     }
   }
@@ -111,7 +109,6 @@ class AuthRepository extends BaseAuth {
         throw response;
       }
     } catch (_) {
-
       rethrow;
     }
   }
